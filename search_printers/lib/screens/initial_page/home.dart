@@ -12,12 +12,14 @@ class Home extends StatelessWidget{
     return Scaffold(
       appBar: customAppBarHome('SearchPrinters'),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: const Icon(Icons.filter_alt),
+        onPressed: () {
+          Navigator.pushNamed(context, 'register');
+        },
+        child: const Icon(Icons.add),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
-            child: Row(
+        padding: const EdgeInsets.all(8.0),
+            child: Column(
               children: [
                 Expanded(
                   child: ListView.builder(

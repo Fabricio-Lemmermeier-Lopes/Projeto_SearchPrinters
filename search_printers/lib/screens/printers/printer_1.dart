@@ -25,6 +25,7 @@ class _Printer1State extends State<Printer1>{
             const Text('HP Ink Advantage 2874', style: TextStyle(fontSize: 20),),
             Image.asset('assets/hp_2874.png'),
             const SizedBox(height: 50),
+            const Text('Marca: HP'),
             const Text('Multifuncional: Sim'),
             const Text('Cor: Colorido'),
             const Text('Velocidade branco e preto: Até 7,5 ppm'),

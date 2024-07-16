@@ -8,9 +8,15 @@ AppBar customAppBarHome(String title) {
       
       IconButton(
         onPressed: () {},
-        icon: const Icon(Icons.search),
+        icon: const Icon(Icons.filter_list),
         tooltip: 'Pesquisar',
       ),
+      IconButton(
+        onPressed: () {},
+        icon: const Icon(Icons.search),
+        tooltip: 'Filtrar',
+      ),
+      
       
     ],
   );
