@@ -14,147 +14,117 @@ class _RegisterState extends State<Register> {
     return Scaffold(
       appBar: customAppBar('Registrar'),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.pushNamed(context, 'home');
-        },
-        child: const Icon(Icons.add),
+        onPressed: () {},
+        child: const Icon(Icons.check),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: Form(
-          child: Column(
-            children: [
-              
-              Expanded(
-                child: ListView.builder(
-                  itemCount: 1,
-                  itemBuilder: (context, index) => 
-                  TextFormField(
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: TextFormField(
                     decoration: InputDecoration(
-                      labelText: 'Nome da Impressora',
-                      border: const OutlineInputBorder(),
+                    labelText: 'Nome da Impressora',
+                    border: const OutlineInputBorder(),
                     ),
                   ),
                 ),
-              ),
-                  
-                  Expanded(
-                child: ListView.builder(
-                  itemCount: 1,
-                  itemBuilder: (context, index) => 
-                  TextFormField(
+
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: TextFormField(
                     decoration: InputDecoration(
-                      labelText: 'Marca',
-                      border: const OutlineInputBorder(),
+                    labelText: 'Marca',
+                    border: const OutlineInputBorder(),
                     ),
                   ),
                 ),
-              ),
-                  
-                  Expanded(
-                child: ListView.builder(
-                  itemCount: 1,
-                  itemBuilder: (context, index) => 
-                  TextFormField(
+
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: TextFormField(
                     decoration: InputDecoration(
-                      labelText: 'Multifuncional',
-                      border: const OutlineInputBorder(),
+                    labelText: 'Multifuncional (Sim ou não)',
+                    border: const OutlineInputBorder(),
                     ),
                   ),
                 ),
-              ),
-                  
-                  Expanded(
-                child: ListView.builder(
-                  itemCount: 1,
-                  itemBuilder: (context, index) => 
-                  TextFormField(
+
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: TextFormField(
                     decoration: InputDecoration(
-                      labelText: 'Cor',
-                      border: const OutlineInputBorder(),
+                    labelText: 'Cor (Preto e branco ou colorido)',
+                    border: const OutlineInputBorder(),
                     ),
                   ),
                 ),
-              ),
-                  
-                  Expanded(
-                child: ListView.builder(
-                  itemCount: 1,
-                  itemBuilder: (context, index) => 
-                  TextFormField(
+
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: TextFormField(
                     decoration: InputDecoration(
-                      labelText: 'Velocidade de Impressão Preto',
-                      border: const OutlineInputBorder(),
+                    labelText: 'Velocidade de Impressão Preto',
+                    border: const OutlineInputBorder(),
                     ),
                   ),
                 ),
-              ),
-                 
-                  Expanded(
-                child: ListView.builder(
-                  itemCount: 1,
-                  itemBuilder: (context, index) => 
-                  TextFormField(
+
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: TextFormField(
                     decoration: InputDecoration(
-                      labelText: 'Velocidade de Impressão Colorido',
-                      border: const OutlineInputBorder(),
+                    labelText: 'Velocidade de Impressão Colorido',
+                    border: const OutlineInputBorder(),
                     ),
                   ),
                 ),
-              ),
-                  
-                  Expanded(
-                child: ListView.builder(
-                  itemCount: 1,
-                  itemBuilder: (context, index) => 
-                  TextFormField(
+
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: TextFormField(
                     decoration: InputDecoration(
-                      labelText: 'Funções',
-                      border: const OutlineInputBorder(),
+                    labelText: 'Funções',
+                    border: const OutlineInputBorder(),
                     ),
                   ),
                 ),
-              ),
-                  
-                  Expanded(
-                child: ListView.builder(
-                  itemCount: 1,
-                  itemBuilder: (context, index) => 
-                  TextFormField(
+
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: TextFormField(
                     decoration: InputDecoration(
-                      labelText: 'Alimentação',
-                      border: const OutlineInputBorder(),
+                    labelText: 'Alimentação',
+                    border: const OutlineInputBorder(),
                     ),
                   ),
                 ),
-              ),
-                  
-                  Expanded(
-                child: ListView.builder(
-                  itemCount: 1,
-                  itemBuilder: (context, index) => 
-                  TextFormField(
+
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: TextFormField(
                     decoration: InputDecoration(
-                      labelText: 'Qualidade de Impressão Preto',
-                      border: const OutlineInputBorder(),
+                    labelText: 'Qualidade de Impressão Preto',
+                    border: const OutlineInputBorder(),
                     ),
                   ),
                 ),
-              ),
-                 
-                  Expanded(
-                child: ListView.builder(
-                  itemCount: 1,
-                  itemBuilder: (context, index) => 
-                  TextFormField(
+
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: TextFormField(
                     decoration: InputDecoration(
-                      labelText: 'Velocidade de Impressão Colorido',
-                      border: const OutlineInputBorder(),
+                    labelText: 'Qualidade de Impressão Colorido',
+                    border: const OutlineInputBorder(),
                     ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),      
       ),

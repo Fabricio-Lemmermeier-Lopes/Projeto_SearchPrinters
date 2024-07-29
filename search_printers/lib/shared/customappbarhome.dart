@@ -1,20 +1,23 @@
 
 import 'package:flutter/material.dart';
 
-AppBar customAppBarHome(String title) {
+
+AppBar customAppBarHome(String title, BuildContext context) {
   return AppBar(
     title: Text(title),
     actions: [
       
       IconButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pushNamed(context, 'filter');
+        },
         icon: const Icon(Icons.filter_list),
-        tooltip: 'Pesquisar',
+        tooltip: 'Filtrar',
       ),
       IconButton(
         onPressed: () {},
         icon: const Icon(Icons.search),
-        tooltip: 'Filtrar',
+        tooltip: 'Pesquisar',
       ),
       
       

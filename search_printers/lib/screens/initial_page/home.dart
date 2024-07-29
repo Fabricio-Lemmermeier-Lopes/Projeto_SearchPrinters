@@ -10,7 +10,7 @@ class Home extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBarHome('SearchPrinters'),
+      appBar: customAppBarHome('SearchPrinters', context),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.pushNamed(context, 'register');
@@ -23,7 +23,7 @@ class Home extends StatelessWidget{
               children: [
                 Expanded(
                   child: ListView.builder(
-                    itemCount: 8,
+                    itemCount: 1,
                     itemBuilder: (context, index) => const Cards(
                     ),
                   ),
