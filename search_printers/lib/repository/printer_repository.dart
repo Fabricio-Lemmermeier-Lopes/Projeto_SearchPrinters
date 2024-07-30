@@ -8,12 +8,12 @@ class TicketRepository {
     return db.insert(_table, printer.toMap());
   }
 
-  static Future<List<Ticket>> findAll() async {
+  static Future<List<Printer>> findAll() async {
     var db = await DbHelper.getConnection();
     var result = await db.query('tickets');
     return result
         .map(
-          (item) => Ticket.fromMap(item),
+          (item) => Printer.fromMap(item),
         )
         .toList();
   }
