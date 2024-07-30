@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:search_printers/model/cor.dart';
+import 'package:search_printers/model/multi.dart';
 import 'package:search_printers/shared/customappbar.dart';
 
 class Register extends StatefulWidget {
@@ -6,20 +8,40 @@ class Register extends StatefulWidget {
 
   @override
   State<Register> createState() => _RegisterState();
+  
 }
 
+
+
 class _RegisterState extends State<Register> {
+  final _formKey = GlobalKey<FormState>();
+  final _color = Cor.values.map((item) => item.label).toList();
+  final _multi = Multi.values.map((item) => item.label).toList();
+  final _nameController = TextEditingController();
+  final _marcaController = TextEditingController();
+  final _velipController = TextEditingController();
+  final _velicController = TextEditingController();
+  final _funcoesController = TextEditingController();
+  final _alimentacaoController = TextEditingController();
+  final _qualipController = TextEditingController();
+  final _qualicController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: customAppBar('Registrar'),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () async {
+          if (_formKey.currentState!.validate()) {
+            save();
+          }
+        },
         child: const Icon(Icons.check),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: Form(
+          key: _formKey,
           child: SingleChildScrollView(
             child: Column(
               children: [
@@ -27,9 +49,16 @@ class _RegisterState extends State<Register> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextFormField(
-                    decoration: InputDecoration(
-                    labelText: 'Nome da Impressora',
-                    border: const OutlineInputBorder(),
+                    validator: (value){
+                      if(value == null){
+                        return 'Nome inválido';
+                      }else{
+                        return null;
+                      }
+                    },
+                      decoration: InputDecoration(
+                      labelText: 'Nome da Impressora',
+                      border: const OutlineInputBorder(),
                     ),
                   ),
                 ),
