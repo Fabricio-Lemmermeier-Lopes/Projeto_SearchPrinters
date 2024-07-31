@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 //import 'package:search_printers/screens/filter/filter.dart';
 import 'package:search_printers/screens/initial_page/home.dart';
-import 'package:search_printers/screens/printers/printer_1.dart';
+//import 'package:search_printers/screens/printers/printer_1.dart';
 import 'package:search_printers/screens/register/register.dart';
 
 

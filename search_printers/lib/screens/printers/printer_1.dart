@@ -1,3 +1,4 @@
+/*
 import 'package:flutter/material.dart';
 import 'package:search_printers/model/printer.dart';
 import 'package:search_printers/shared/customappbar.dart';
@@ -41,3 +42,4 @@ class _Printer1State extends State<Printer1>{
     );
   }
 }
+*/

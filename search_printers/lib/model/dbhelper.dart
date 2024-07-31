@@ -1,15 +1,15 @@
 import 'package:sqflite/sqflite.dart';
 
 class DbHelper {
-  static Future<Database> getConnection() async {
-    const String dbName = 'parking_juca_rio_grande.db';
+  static Future<Database> getConnection() async{
+    const String dbName = 'search_printer_fabs.db';
     final String dbPath = await getDatabasesPath();
     return await openDatabase(
       '$dbPath$dbName',
       version: 1,
       onCreate: (db, _) async {
         await db.execute(
-            'CREATE TABLE tickets (number INTEGER PRIMARY KEY AUTOINCREMENT,vacancyNumber CHAR(4) NOT NULL,vehicleLicensePlate CHAR(7) NOT NULL,vehicleType VARCHAR(10),entryTime CHAR(5) NOT NULL, departureTime CHAR(5), amount REAL);');
+            'CREATE TABLE tickets (name CHAR(15),marca CHAR(8) NOT NULL,multi CHAR(3) NOT NULL,cor VARCHAR(14),velip CHAR(7) NOT NULL,velic CHAR(7),funcoes CHAR(30) NOT NULL,alimentacao CHAR(12) NOT NULL, velip CHAR(7) NOT NULL, qualip CHAR(8) NOT NULL,qualic CHAR(8));');
       },
     );
   }
