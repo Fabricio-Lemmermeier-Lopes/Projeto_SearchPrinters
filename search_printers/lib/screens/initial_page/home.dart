@@ -1,12 +1,17 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:search_printers/repository/printer_repository.dart';
 import 'package:search_printers/screens/initial_page/componets/cards.dart';
-//import 'package:search_printers/screens/printers/printer_1.dart';
 import 'package:search_printers/shared/customappbarhome.dart';
 
-class Home extends StatelessWidget{
+class Home extends StatefulWidget {
   const Home({super.key});
 
+  @override
+  State<Home> createState() => _HomeState();
+}
 
+class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,45 +22,61 @@ class Home extends StatelessWidget{
         },
         child: const Icon(Icons.add),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-            child: Column(
+      body: buildScreen(),
+    );
+  }
+  Widget buildScreen() {
+    var listOfPrinter = [];
+    return FutureBuilder(
+      future: PrinterRepository.findAll(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting ||
+              snapshot.connectionState == ConnectionState.none) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+          if (!snapshot.hasData || snapshot.data!.isEmpty) {
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Expanded(
-                  child: ListView.builder(
-                    itemCount: 1,
-                    itemBuilder: (context, index) => const Cards(
+                const Center(
+                  child: Text('Não existem Impressoras cadastradas'),
+                ),
+                TextButton(
+                  onPressed: () async {
+                    listOfPrinter = await PrinterRepository.findAll();
+                    setState(() {});
+                  },
+                  child: const Text("Atualizar"),
+                )
+              ],
+            );
+          }
+          listOfPrinter = snapshot.data!;
+          return RefreshIndicator(
+            onRefresh: () async {
+              listOfPrinter = await PrinterRepository.findAll();
+              setState(() {});
+            },
+            child: Padding(
+              padding: const EdgeInsets.all(16),
+              child: Column(
+                children: [
+                  Expanded(
+                    child: ListView.builder(
+                      itemCount: listOfPrinter.length,
+                      itemBuilder: (context, index) => Cards(
+                        printer: listOfPrinter[index],
+                      ),
                     ),
                   ),
-                ),
-              ],
-            ),
-          
-      ),
-      
-      /*
-        child: Column(
-          children: [
-            
-            Expanded(
-              child: ListView.builder(
-                itemCount: 4,
-                itemBuilder: (context, index),
-                
-                ),
+                ],
               ),
-          ],
-        ),
-        */
-      
-      
+            ),
+          );
+        }
     );
   }
 }
   
-
-  
-  
-  
-
- 

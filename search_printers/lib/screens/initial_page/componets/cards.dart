@@ -1,14 +1,21 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-//import 'package:search_printers/screens/printers/printer_1.dart';
+import 'package:search_printers/model/printer.dart';
+
+
 
 class Cards extends StatelessWidget {
-  const Cards({super.key});
+  final Printer printer;
+  const Cards({
+    super.key,
+    required this.printer,
+    });
 
   @override
-  Widget build(BuildContext context) => GestureDetector(
-        onTap: () => Navigator.pushNamed(context, 'printer_1'),
+  Widget build(BuildContext context) {
+    return GestureDetector(
+        onTap: () => Navigator.pushNamed(context, ''),
 
       child: Container(
         height: 90,
@@ -19,19 +26,19 @@ class Cards extends StatelessWidget {
           elevation: 5,
           child: Column(
             mainAxisSize: MainAxisSize.min,
-            children:<Widget>[
+            children: <Widget>[
               Text(
-                'HP Ink Advantage 2874',
+                'Hp 432',
                 style: TextStyle(
-                  fontSize: 18,
-                  height: 3,
-                ),
-                textAlign: TextAlign.center,
-              ),
+                  fontSize: 20,
+                  height: 2.90
+                )
+              )
               
             ],
           ),
         ),
       ),
   );
+  }
 }

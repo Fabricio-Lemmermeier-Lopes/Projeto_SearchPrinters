@@ -64,9 +64,9 @@ class _RegisterState extends State<Register> {
                 ),
 
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.only(bottom: 10, left: 8, right: 8, top: 8),
                   child: TextFormField(
-                    validator: (value) => value!.length != 2  ? 'Marca inválida' : null,
+                    validator: (value) => value!.length < 2  ? 'Marca inválida' : null,
                     controller: _marcaController,
                     decoration: InputDecoration(
                     labelText: 'Marca',
@@ -92,9 +92,9 @@ class _RegisterState extends State<Register> {
                 
 
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.only(left: 8, right: 8, bottom: 8, top: 14),
                   child: TextFormField(
-                    validator: (value) => value!.length != 6  ? 'Velocidade inválida' : null,
+                    validator: (value) => value!.length < 5  ? 'Velocidade inválida' : null,
                     controller: _velipController,
                     decoration: InputDecoration(
                     labelText: 'Velocidade de Impressão Preto (Ex: 40 ppm)',
@@ -140,7 +140,7 @@ class _RegisterState extends State<Register> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextFormField(
-                    validator: (value) => value!.length != 7  ? 'Qualidade inválida' : null,
+                    validator: (value) => value!.length < 7  ? 'Qualidade inválida' : null,
                     controller: _qualipController,
                     decoration: InputDecoration(
                     labelText: 'Qualidade de Impressão Preto (Ex: 720x720)',
@@ -203,7 +203,6 @@ class _RegisterState extends State<Register> {
         content: Text('Ops. Tivemos um problema técnico!!!'),
       );
       ScaffoldMessenger.of(context).showSnackBar(snackBar);
-    }
-  }
-
+}
+}
 }
